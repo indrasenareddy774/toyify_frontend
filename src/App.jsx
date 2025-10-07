@@ -4,12 +4,12 @@ import './App.css'
 function App() {
   return (
     <>
-      <div style={{ textAlign: 'center', marginTop: '40px' }}>
+      <div style={{ textAlign: 'center', marginTop: '100px' }}>
         {/* Logo Image */}
         <img 
           src={logo1} 
           alt="Toyify Logo" 
-          style={{ width: '150px', height: 'auto', marginBottom: '20px' }}
+          style={{ width: '550px', height: 'auto', marginBottom: '20px' }}
         />
 
         {/* Heading and Description */}
