@@ -17,7 +17,7 @@ function App() {
     <Router>
       <CssBaseline />
       <Header />
-      <Container sx={{ minHeight: "80vh", mt: 4 }}>
+      <box sx={{ minHeight: "80vh", mt: 4 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/shop" element={<Shop />} />
@@ -25,7 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> */}
         </Routes>
-      </Container>
+      </box>
       <Footer />
     </Router>
   );
