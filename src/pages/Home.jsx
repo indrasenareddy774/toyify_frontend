@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { ProductCard } from "../components/ProductCard";
 import { CategoryCard } from "../components/CategoryCard";
 import { getCategories, getProducts } from "../api/api";
+import { CardMedia } from "@mui/material";
+
 // import { ImageWithFallback } from "./ImageWithFallback";
 
 export default function LandingPage() {
@@ -31,9 +33,16 @@ export default function LandingPage() {
           py: 10,
           background: "linear-gradient(135deg, #FFD93D, #FF6B6B, #4D96FF)",
           color: "white",
+          px: 30,
         }}
       >
-        <Grid container spacing={4} alignItems="center" justifyContent="center">
+        <Grid
+          container
+          spacing={4}
+          alignItems="center"
+          justifyContent="center"
+          wrap="nowrap"
+        >
           <Grid item xs={12} md={6}>
             <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
               Fun & Safe Toys for Every Kid 🎉
@@ -77,12 +86,17 @@ export default function LandingPage() {
                   filter: "blur(20px)",
                 }}
               />
-              {/* <ImageWithFallback
-                src="https://images.unsplash.com/photo-1638897481243-42fa0664785f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwcGxheWluZyUyMHRveXN8ZW58MXx8fHwxNzU5NTgwNzIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              <CardMedia
+                component="img"
+                height="200"
+                image="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
                 alt="Kids playing with toys"
-                className="rounded-3xl shadow-2xl w-full max-w-md"
-                style={{ borderRadius: "24px", maxWidth: 400 }}
-              /> */}
+                sx={{
+                  borderRadius: "24px",
+                  boxShadow: 6,
+                  objectFit: "cover",
+                }}
+              />
             </Box>
           </Grid>
         </Grid>
@@ -112,11 +126,17 @@ export default function LandingPage() {
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
-          {categories.map((category) => (
-            <Grid item xs={12} sm={6} md={3} key={category.id}>
-              <CategoryCard category={category} />
-            </Grid>
-          ))}
+          {categories.length > 0 ? (
+            categories.map((category) => (
+              <Grid item xs={12} sm={6} md={3} key={category.id}>
+                <CategoryCard category={category} />
+              </Grid>
+            ))
+          ) : (
+            <Typography sx={{ mt: 4, color: "red" }}>
+              Categories can’t be retrieved.
+            </Typography>
+          )}
         </Grid>
       </Box>
 
@@ -142,12 +162,18 @@ export default function LandingPage() {
           Top picks loved by kids and parents!
         </Typography>
 
-        <Grid container spacing={4}>
-          {bestSellers.map((product) => (
-            <Grid item xs={12} sm={6} md={4} key={product.id}>
-              <ProductCard product={product} />
-            </Grid>
-          ))}
+        <Grid container spacing={4} justifyContent="center">
+          {bestSellers.length > 0 ? (
+            bestSellers.map((product) => (
+              <Grid item xs={12} sm={6} md={4} key={product.id}>
+                <ProductCard product={product} />
+              </Grid>
+            ))
+          ) : (
+            <Typography sx={{ mt: 4, color: "red" }}>
+              Products can’t be retrieved.
+            </Typography>
+          )}
         </Grid>
 
         <Box sx={{ textAlign: "center", mt: 4 }}>

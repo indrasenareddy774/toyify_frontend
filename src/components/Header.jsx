@@ -8,6 +8,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import CustomIconButton from "./CustomIconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -21,7 +22,8 @@ export default function Header() {
           display: "flex",
           justifyContent: "space-between",
           mx: "auto",
-          width: "90%",
+          width: "80%",
+          // px: "30px",
         }}
       >
         {/* Left Icons */}
@@ -39,11 +41,8 @@ export default function Header() {
           <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/shop">
-            Shop
-          </Button>
-          <Button color="inherit" component={Link} to="/category">
-            Category
+          <Button color="inherit" component={Link} to="/product">
+            Product
           </Button>
           <Button color="inherit" component={Link} to="/about">
             About
@@ -55,30 +54,10 @@ export default function Header() {
 
         {/* Right Logo */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          {[
-            SearchIcon,
-            FavoriteBorderIcon,
-            ShoppingCartIcon,
-            AccountCircleIcon,
-          ].map((Icon, index) => (
-            <IconButton
-              key={index}
-              color="inherit"
-              sx={{
-                // border: "1px solid white",
-                borderRadius: "50%",
-                p: 1,
-                bgcolor: "#FF4444",
-                transition: "0.3s",
-                "&:hover": {
-                  bgcolor: "white",
-                  color: "primary.main",
-                },
-              }}
-            >
-              <Icon />
-            </IconButton>
-          ))}
+          <CustomIconButton Icon={SearchIcon} bgColor="#FFC107" />
+          <CustomIconButton Icon={FavoriteBorderIcon} bgColor="#e53e89ff" />
+          <CustomIconButton Icon={ShoppingCartIcon} bgColor="#2196F3" />
+          <CustomIconButton Icon={AccountCircleIcon} bgColor="#4ddb00ff" />
         </Box>
       </Toolbar>
     </AppBar>
