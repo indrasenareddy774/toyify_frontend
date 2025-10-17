@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ProductCard } from "../components/ProductCard";
 import { CategoryCard } from "../components/CategoryCard";
+import CategorySection from "../sections/CategorySection";
 import { getCategories, getProducts } from "../api/api";
 import { CardMedia } from "@mui/material";
 
@@ -124,20 +125,7 @@ export default function LandingPage() {
         >
           Find the perfect toy for your little one
         </Typography>
-
-        <Grid container spacing={4} justifyContent="center">
-          {categories.length > 0 ? (
-            categories.map((category) => (
-              <Grid item xs={12} sm={6} md={3} key={category.id}>
-                <CategoryCard category={category} />
-              </Grid>
-            ))
-          ) : (
-            <Typography sx={{ mt: 4, color: "red" }}>
-              Categories can’t be retrieved.
-            </Typography>
-          )}
-        </Grid>
+        <CategorySection categories={categories} />
       </Box>
 
       {/* Best Sellers Section */}
