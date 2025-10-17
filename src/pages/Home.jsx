@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ProductCard } from "../components/ProductCard";
 import { CategoryCard } from "../components/CategoryCard";
 import CategorySection from "../sections/CategorySection";
+import ProductSection from "../sections/ProductSection";
 import { getCategories, getProducts } from "../api/api";
 import { CardMedia } from "@mui/material";
 
@@ -149,8 +150,8 @@ export default function LandingPage() {
         >
           Top picks loved by kids and parents!
         </Typography>
-
-        <Grid container spacing={4} justifyContent="center">
+        <ProductSection products ={bestSellers}/>
+        {/* <Grid container spacing={4} justifyContent="center">
           {bestSellers.length > 0 ? (
             bestSellers.map((product) => (
               <Grid item xs={12} sm={6} md={4} key={product.id}>
@@ -162,7 +163,7 @@ export default function LandingPage() {
               Products can’t be retrieved.
             </Typography>
           )}
-        </Grid>
+        </Grid> */}
 
         <Box sx={{ textAlign: "center", mt: 4 }}>
           <Link to="/shop" style={{ textDecoration: "none" }}>
