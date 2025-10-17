@@ -151,19 +151,6 @@ export default function LandingPage() {
           Top picks loved by kids and parents!
         </Typography>
         <ProductSection products ={bestSellers}/>
-        {/* <Grid container spacing={4} justifyContent="center">
-          {bestSellers.length > 0 ? (
-            bestSellers.map((product) => (
-              <Grid item xs={12} sm={6} md={4} key={product.id}>
-                <ProductCard product={product} />
-              </Grid>
-            ))
-          ) : (
-            <Typography sx={{ mt: 4, color: "red" }}>
-              Products can’t be retrieved.
-            </Typography>
-          )}
-        </Grid> */}
 
         <Box sx={{ textAlign: "center", mt: 4 }}>
           <Link to="/shop" style={{ textDecoration: "none" }}>
