@@ -14,8 +14,23 @@ const api = axios.create({
 // ---------------- Authentication ----------------
 export const registerUser = async (userData) => {
   const response = await api.post("/auth/register", userData);
+  const { token } = response.data;
+  if (token) {
+    localStorage.setItem("token", token);
+  }
   return response.data;
 };
+
+export const loginUser = async (userData) => {
+  const response = await api.post("/auth/login", userData);
+  const { token } = response.data;
+  if (token) {
+    localStorage.setItem("token", token);
+  }
+  return response.data;
+};
+
+expor
 
 // ---------------- Categories ----------------
 export const getCategories = async (page = 1, limit = 5) => {
